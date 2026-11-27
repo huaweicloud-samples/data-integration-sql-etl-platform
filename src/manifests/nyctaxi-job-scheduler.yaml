@@ -1,0 +1,137 @@
+# ============================================================================
+# nyctaxi 作业调度
+# 通过 Argo Workflow 提交；在 spark-submit 前移除镜像内可能与 S3AFileSystem
+# 冲突的 JDBC jar，再用 S3A 协议访问华为云 OBS。
+# notebook/schema 通过 ConfigMap 挂载为本地文件（Arc 只识别 file:// / http(s):// scheme）。
+# 作业读取 s3a://nyc-tlc/csv_backup（OBS）→ 类型转换 → SQL 校验 → SQL 转换 →
+# 通过 DelimitedLoad 将结果写回 s3a://spark-etl-datalake/nyctaxi-output/（OBS）。
+# ============================================================================
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: nyctaxi-job-
+  namespace: spark
+spec:
+  serviceAccountName: arcjob
+  ttlStrategy:
+    secondsAfterCompletion: 1800
+  # 将 OBS 访问凭据挂载到 main 容器，并把 notebook/schema 挂载到 /opt/arc
+  podSpecPatch: |
+    volumes:
+      - name: nyctaxi-config
+        configMap:
+          name: nyctaxi-config
+    containers:
+      - name: main
+        volumeMounts:
+          - name: nyctaxi-config
+            mountPath: /opt/arc
+        env:
+          - name: OBS_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: obs-creds
+                key: ACCESS_KEY
+          - name: OBS_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: obs-creds
+                key: SECRET_KEY
+  entrypoint: nyctaxi
+  templates:
+  - name: nyctaxi
+    dag:
+      tasks:
+      - name: step1-query
+        template: sparklocal-fixed
+        arguments:
+          parameters:
+          - name: jobId
+            value: nyctaxi
+          - name: tags
+            value: "project=sqlbasedetl"
+          - name: configUri
+            value: file:///opt/arc/nyctaxi.ipynb
+          - name: image
+            value: swr.cn-north-4.myhuaweicloud.com/sparketl/arc:latest
+          - name: sparkConf
+            value: "--conf spark.hadoop.fs.s3a.endpoint=obs.cn-north-4.myhuaweicloud.com --conf spark.hadoop.fs.s3a.connection.ssl.enabled=true --conf spark.hadoop.fs.s3a.path.style.access=false --conf spark.hadoop.fs.s3a.endpoint.region=cn-north-4 --conf spark.hadoop.fs.s3a.signing-algorithm=AWSS3V4SignerType --conf spark.hadoop.fs.s3a.access.key=$OBS_ACCESS_KEY --conf spark.hadoop.fs.s3a.secret.key=$OBS_SECRET_KEY --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem"
+          - name: parameters
+            value: "--ETL_CONF_DATA_URL=s3a://nyc-tlc/csv_backup --ETL_CONF_JOB_URL=file:///opt/arc"
+
+  # 复制 spark-template/sparklocal，并在提交前移除冲突 jar
+  - name: sparklocal-fixed
+    inputs:
+      parameters:
+      - name: jobId
+      - name: configUri
+      - name: image
+        value: swr.cn-north-4.myhuaweicloud.com/sparketl/arc:latest
+      - name: executorInstances
+        value: "1"
+      - name: executorCores
+        value: "1"
+      - name: executorMemory
+        value: "1"
+      - name: sparkConf
+        value: ""
+      - name: tags
+        value: ""
+      - name: parameters
+        value: ""
+      - name: environment
+        value: "test"
+    metadata:
+      labels:
+        app: spark
+        workflowId: "{{workflow.uid}}"
+    podSpecPatch: |
+      containers:
+        - name: main
+          resources:
+            requests:
+              cpu: "{{inputs.parameters.executorCores}}"
+              memory: "{{inputs.parameters.executorMemory}}Gi"
+    script:
+      command: ["/bin/sh"]
+      image: "{{inputs.parameters.image}}"
+      source: |
+        set -ex
+        hostname
+        hostname -I
+        # 移除镜像内可能与 S3AFileSystem 冲突的 JDBC jar
+        rm -f /opt/spark/jars/AthenaJDBC42-*.jar
+        # 将 S3A/OBS 配置写入 core-site.xml，确保 Hadoop FileSystem 能读到凭据
+        printf '%s\n' '<?xml version="1.0"?>' '<configuration>' \
+          '  <property><name>fs.s3a.endpoint</name><value>obs.cn-north-4.myhuaweicloud.com</value></property>' \
+          '  <property><name>fs.s3a.connection.ssl.enabled</name><value>true</value></property>' \
+          '  <property><name>fs.s3a.path.style.access</name><value>false</value></property>' \
+          '  <property><name>fs.s3a.endpoint.region</name><value>cn-north-4</value></property>' \
+          '  <property><name>fs.s3a.signing-algorithm</name><value>AWSS3V4SignerType</value></property>' \
+          "  <property><name>fs.s3a.access.key</name><value>$OBS_ACCESS_KEY</value></property>" \
+          "  <property><name>fs.s3a.secret.key</name><value>$OBS_SECRET_KEY</value></property>" \
+          '  <property><name>fs.s3a.impl</name><value>org.apache.hadoop.fs.s3a.S3AFileSystem</value></property>' \
+          '  <property><name>fs.s3a.aws.credentials.provider</name><value>org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider,com.amazonaws.auth.EnvironmentVariableCredentialsProvider</value></property>' \
+          '</configuration>' > /opt/spark/conf/core-site.xml
+        /opt/spark/bin/spark-submit \
+        --master local[{{inputs.parameters.executorCores}}] \
+        --driver-memory $(({{inputs.parameters.executorMemory}} * 1024 * 90/100))m \
+        --driver-java-options "-XX:+UseG1GC" \
+        --class ai.tripl.arc.ARC \
+        --name arc \
+        --conf spark.driver.host=$(hostname -I) \
+        --conf spark.driver.pod.name=$(hostname)-driver \
+        --conf spark.io.encryption.enabled=true \
+        --conf spark.sql.adaptive.enabled=true \
+        --conf spark.network.crypto.enabled=true \
+        --conf spark.ui.enabled=true \
+        --conf spark.sql.ansi.enabled=true \
+        {{inputs.parameters.sparkConf}} \
+        local:///opt/spark/jars/arc.jar \
+        --etl.config.uri={{inputs.parameters.configUri}} \
+        --etl.config.job.id={{inputs.parameters.jobId}} \
+        --etl.config.environment={{inputs.parameters.environment}} \
+        --etl.config.ignoreEnvironments=false \
+        --etl.config.tags="service=arc workflowId={{workflow.uid}} pod={{pod.name}} serviceAccount={{workflow.serviceAccountName}} namespace={{workflow.namespace}} {{inputs.parameters.tags}}" \
+        --ETL_CONF_EPOCH=$(date '+%s') --ETL_CONF_CURRENT_TIMESTAMP="'$(date -u '+%Y-%m-%d %H:%M:%S')'" \
+        {{inputs.parameters.parameters}}

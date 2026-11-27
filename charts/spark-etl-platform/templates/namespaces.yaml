@@ -1,0 +1,15 @@
+# 命名空间（argo 命名空间由 argo-workflows chart 自行创建）
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spark
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jupyter
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: emr

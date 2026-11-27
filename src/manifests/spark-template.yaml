@@ -1,0 +1,142 @@
+# ============================================================================
+# Argo WorkflowTemplate（Spark ETL 作业模板）
+# 关键改动：
+#   1. image 由 ghcr.io/tripl-ai/arc 改为 SWR 镜像地址
+#   2. 数据源端点 s3a:// → obs://（通过 --ETL_CONF_DATA_URL 等参数传入）
+#   3. 注入 OBS 配置（见 src/adapter/obs_spark_adapter.py）
+# Spark/Arc 业务逻辑（--class ai.tripl.arc.ARC 等）保持不变
+# ============================================================================
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: spark-template
+  namespace: spark
+spec:
+  templates:
+  - name: sparklocal
+    inputs:
+      parameters:
+      - name: jobId
+      - name: configUri
+      - name: image
+        value: "swr.cn-north-4.myhuaweicloud.com/<org>/arc:latest"   # 改自 ghcr.io/tripl-ai/arc
+      - name: executorInstances
+        value: "1"
+      - name: executorCores
+        value: "1"
+      - name: executorMemory
+        value: "1"
+      - name: sparkConf
+        value: ""
+      - name: tags
+        value: ""
+      - name: parameters
+        value: ""
+      - name: pullPolicy
+        value: IfNotPresent
+      - name: environment
+        value: test
+    metadata:
+      labels:
+        app: spark
+        workflowId: "{{workflow.uid}}"
+    podSpecPatch: |
+      containers:
+        - name: main
+          resources:
+            requests:
+              cpu: "{{inputs.parameters.executorCores}}"
+              memory: "{{inputs.parameters.executorMemory}}Gi"
+    script:
+      image: "{{inputs.parameters.image}}"
+      command: ["/bin/sh"]
+      source: |
+        set -ex
+        hostname
+        hostname -I
+        /opt/spark/bin/spark-submit \
+        --master local[{{inputs.parameters.executorCores}}] \
+        --driver-memory $(({{inputs.parameters.executorMemory}} * 1024 * 90/100))m \
+        --driver-java-options "-XX:+UseG1GC" \
+        --class ai.tripl.arc.ARC \
+        --name arc \
+        --conf spark.driver.host=$(hostname -I) \
+        --conf spark.driver.pod.name=$(hostname)-driver \
+        --conf spark.io.encryption.enabled=true \
+        --conf spark.sql.adaptive.enabled=true \
+        --conf spark.network.crypto.enabled=true \
+        --conf spark.ui.enabled=true \
+        --conf spark.sql.ansi.enabled=true \
+        --conf spark.hadoop.fs.obs.impl=org.apache.hadoop.fs.obs.OBSFileSystem \
+        --conf spark.hadoop.fs.obs.access.key=$OBS_ACCESS_KEY \
+        --conf spark.hadoop.fs.obs.secret.key=$OBS_SECRET_KEY \
+        --conf spark.hadoop.fs.obs.endpoint=obs.cn-north-4.myhuaweicloud.com \
+        {{inputs.parameters.sparkConf}} \
+        local:///opt/spark/jars/arc.jar \
+        --etl.config.uri={{inputs.parameters.configUri}} \
+        --etl.config.job.id={{inputs.parameters.jobId}} \
+        --etl.config.environment={{inputs.parameters.environment}} \
+        --etl.config.ignoreEnvironments=false \
+        --etl.config.tags="service=arc workflowId={{workflow.uid}} pod={{pod.name}} serviceAccount={{workflow.serviceAccountName}} namespace={{workflow.namespace}} {{inputs.parameters.tags}}" \
+        --ETL_CONF_EPOCH=$(date '+%s') --ETL_CONF_CURRENT_TIMESTAMP="'$(date -u '+%Y-%m-%d %H:%M:%S')'" \
+        {{inputs.parameters.parameters}}
+  - name: mediumjob
+    retryStrategy:
+      limit: 3
+      retryPolicy: "Always"
+    inputs:
+      parameters:
+      - name: jobId
+      - name: configUri
+      - name: image
+        value: "swr.cn-north-4.myhuaweicloud.com/<org>/arc:latest"
+      - name: executorInstances
+        value: "2"
+      - name: executorCores
+        value: "2"
+      - name: executorMemory
+        value: "10"
+      - name: sparkConf
+        value: ""
+      - name: tags
+        value: ""
+      - name: parameters
+        value: ""
+      - name: environment
+        value: test
+    metadata:
+      labels:
+        app: spark
+        workflowId: "{{workflow.uid}}"
+    script:
+      image: "{{inputs.parameters.image}}"
+      command: ["/bin/sh"]
+      source: |
+        set -ex
+        /opt/spark/bin/spark-submit \
+        --master k8s://kubernetes.default.svc:443 \
+        --deploy-mode client \
+        --class ai.tripl.arc.ARC \
+        --name arc \
+        --conf spark.driver.host=$(hostname -I) \
+        --conf spark.driver.memory=2g \
+        --conf spark.executor.cores={{inputs.parameters.executorCores}} \
+        --conf spark.executor.instances={{inputs.parameters.executorInstances}} \
+        --conf spark.executor.memory={{inputs.parameters.executorMemory}}G \
+        --conf spark.io.encryption.enabled=true \
+        --conf spark.network.crypto.enabled=true \
+        --conf spark.sql.ansi.enabled=true \
+        --conf spark.kubernetes.authenticate.driver.serviceAccountName={{workflow.serviceAccountName}} \
+        --conf spark.kubernetes.container.image={{inputs.parameters.image}} \
+        --conf spark.kubernetes.namespace={{workflow.namespace}} \
+        --conf spark.hadoop.fs.obs.impl=org.apache.hadoop.fs.obs.OBSFileSystem \
+        --conf spark.hadoop.fs.obs.access.key=$OBS_ACCESS_KEY \
+        --conf spark.hadoop.fs.obs.secret.key=$OBS_SECRET_KEY \
+        --conf spark.hadoop.fs.obs.endpoint=obs.cn-north-4.myhuaweicloud.com \
+        {{inputs.parameters.sparkConf}} \
+        local:///opt/spark/jars/arc.jar \
+        --etl.config.uri={{inputs.parameters.configUri}} \
+        --etl.config.job.id={{inputs.parameters.jobId}} \
+        --etl.config.environment={{inputs.parameters.environment}} \
+        --ETL_CONF_EPOCH=$(date '+%s') --ETL_CONF_CURRENT_TIMESTAMP="'$(date -u '+%Y-%m-%d %H:%M:%S')'" \
+        {{inputs.parameters.parameters}}

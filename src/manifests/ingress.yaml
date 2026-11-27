@@ -1,0 +1,45 @@
+# ============================================================================
+# Ingress
+# 由 ingress-nginx 插件 + ELB（Terraform 中的 huaweicloud_elb_loadbalancer）提供
+# 建议使用自有域名 + CCM SSL 证书
+# ============================================================================
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jupyterhub-ingress
+  namespace: jupyter
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # 如需 TLS，在此挂 CCM 证书
+spec:
+  rules:
+  - host: jhub.<your-domain>.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: proxy-api
+            port:
+              number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-ingress
+  namespace: argo
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: argo.<your-domain>.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argo-server
+            port:
+              number: 2746

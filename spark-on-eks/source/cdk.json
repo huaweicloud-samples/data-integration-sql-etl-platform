@@ -1,0 +1,10 @@
+{
+  "app": "python3 app.py",
+  "context": {
+    "cluster_name": "spark-on-eks",
+    "solution_name": "sql-based-etl-with-apache-spark-on-cce",
+    "version": "2.0.0",
+    "@hw-cdk/core:stackRelativeExports": true,
+    "@hw-cdk/customresources:installLatestSdkDefault": false
+  }
+}

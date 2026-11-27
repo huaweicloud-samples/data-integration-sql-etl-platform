@@ -1,0 +1,5 @@
+{{- /*
+  Argo WorkflowTemplate 含大量 Argo 自己的 {{...}} 模板语法，
+  为避免与 Helm 模板冲突，原样从 files/ 读入，仅替换 <region>/<org> 占位符。
+*/ -}}
+{{ .Files.Get "files/spark-template.yaml" | replace "<region>" .Values.region | replace "<org>" .Values.swrOrg }}

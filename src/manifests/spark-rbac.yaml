@@ -1,0 +1,54 @@
+# ============================================================================
+# RBAC / ServiceAccount（华为云 CCE）
+# CCE 委托(Agency) 给节点/集群授权，K8s 内再用 RBAC 做 namespace 级隔离。
+# ============================================================================
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: arcjob
+  namespace: spark
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jupyter-sa
+  namespace: jupyter
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: emr-sa
+  namespace: emr
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: spark-etl-role
+  namespace: spark
+rules:
+  - apiGroups: [""]
+    # 必须含 patch/update：Argo 在步骤完成后给 pod 打注解记录输出，
+    # 缺该权限会导致 Workflow 被误标为 Error（已修复）。
+    resources: ["pods", "pods/log", "pods/status", "configmaps", "secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["argoproj.io"]
+    resources: ["workflows", "workflowtemplates"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: spark-etl-binding
+  namespace: spark
+subjects:
+  - kind: ServiceAccount
+    name: arcjob
+    namespace: spark
+roleRef:
+  kind: Role
+  name: spark-etl-role
+  apiGroup: rbac.authorization.k8s.io
+# 注：obs-creds secret 不含在本清单中，避免占位符覆盖真实凭据。
+# 由 submit_arc_job_huawei.sh 第 2 步从环境变量（或 CSMS）注入：
+#   kubectl create secret generic obs-creds -n spark \
+#     --from-literal=ACCESS_KEY=$HW_ACCESS_KEY --from-literal=SECRET_KEY=$HW_SECRET_KEY

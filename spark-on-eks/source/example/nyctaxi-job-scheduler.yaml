@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: nyctaxi-job-
+  namespace: spark
+spec:
+  serviceAccountName: arcjob
+  ttlStrategy:
+    # keep workflows for 30m
+    secondsAfterCompletion: 1800
+  entrypoint: nyctaxi
+  templates:
+  - name: nyctaxi
+    dag:
+      tasks:
+        - name: step1-query
+          templateRef:
+            name: spark-template
+            template: sparklocal 
+          arguments:
+            parameters:
+            - name: jobId
+              value: nyctaxi 
+            - name: tags
+              value: "project=sqlbasedetl owner=myowner costcenter=66666" 
+            - name: configUri
+              value: https://raw.githubusercontent.com/tripl-ai/arc-starter/master/examples/kubernetes/nyctaxi.ipynb
+            - name: image
+              value: ghcr.io/tripl-ai/arc:arc_3.11.1_spark_3.1.2_scala_2.12_hadoop_3.2.0_1.0.0 
+            - name: parameters
+              value: "--ETL_CONF_DATA_URL=s3a://nyc-tlc/csv_backup --ETL_CONF_JOB_URL=https://raw.githubusercontent.com/tripl-ai/arc-starter/master/examples/kubernetes"

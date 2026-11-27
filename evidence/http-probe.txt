@@ -1,0 +1,29 @@
+=== JupyterHub http probe Thu, Jul 30, 2026  1:49:01 PM ===
+http://jhub.124.70.93.52.nip.io -> HTTP 403 (redirect: )
+http://jhub.124.70.93.52.nip.io/hub/login -> HTTP 403
+
+=== Argo Workflows http probe ===
+http://argo.124.70.93.52.nip.io -> HTTP 403
+=== In-cluster service probe (via kubectl port-forward) Thu, Jul 30, 2026  1:49:37 PM ===
+--- JupyterHub /hub/login ---
+HTTP 000
+--- Argo Workflows ---
+HTTP 000
+=== In-cluster service probe (kubectl port-forward) Thu, Jul 30, 2026  1:50:11 PM ===
+--- JupyterHub /hub/login ---
+HTTP 000
+--- Argo Workflows / ---
+HTTP 000
+pod "probe" deleted from default namespace
+Error from server: Get "https://10.0.1.233:10250/containerLogs/default/probe/probe": dial tcp 10.0.1.233:10250: i/o timeout
+=== HTTPS probe (443, self-signed ok) Thu, Jul 30, 2026  1:52:00 PM ===
+https://jhub.../hub/login -> HTTP 000
+https://argo... -> HTTP 000
+=== Raw IP probe Thu, Jul 30, 2026  1:52:26 PM ===
+http://124.70.93.52/ (no host) -> HTTP 404
+HTTP/1.1 403 Forbidden
+Content-Type: text/html; charset=utf-8
+Server: ADM/2.1.1
+=== IP direct access (catch-all ingress) Thu, Jul 30, 2026  1:53:45 PM ===
+http://124.70.93.52/hub/login -> HTTP 200
+<title>JupyterHub</title>

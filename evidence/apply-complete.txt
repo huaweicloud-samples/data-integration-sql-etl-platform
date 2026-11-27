@@ -1,0 +1,20 @@
+helm_release.jupyterhub[0]: Still creating... [00m10s elapsed]
+helm_release.jupyterhub[0]: Still creating... [00m20s elapsed]
+helm_release.jupyterhub[0]: Still creating... [00m30s elapsed]
+helm_release.jupyterhub[0]: Still creating... [00m40s elapsed]
+helm_release.jupyterhub[0]: Still creating... [00m50s elapsed]
+helm_release.jupyterhub[0]: Creation complete after 53s [id=jupyterhub]
+
+Apply complete! Resources: 1 added, 1 changed, 1 destroyed.
+
+Outputs:
+
+argo_url = "http://argo.124.70.93.52.nip.io"
+cce_cluster_id = "f90938e7-8bbe-11f1-802a-0255ac10024d"
+cce_kubeconfig_url = "hw cce get-credentials --cluster-id f90938e7-8bbe-11f1-802a-0255ac10024d --kubeconfig ./kubeconfig.yaml"
+csms_secret_name = "spark-etl-jhub-login"
+ingress_elb_eip = "124.70.93.52"
+jupyterhub_url = "http://jhub.124.70.93.52.nip.io  （用户: sparkoneks / 密码: var.jhub_secret_password）"
+obs_app_code_bucket = "spark-etl-app-code"
+obs_datalake_bucket = "spark-etl-datalake"
+swr_org = "sparketl"
