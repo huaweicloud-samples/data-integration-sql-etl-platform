@@ -1,0 +1,37 @@
+=== kubectl get nodes ===
+NAME         STATUS   ROLES    AGE    VERSION                  INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                  KERNEL-VERSION                              CONTAINER-RUNTIME
+10.0.1.233   Ready    <none>   3h8m   v1.28.15-r90-28.0.72.3   10.0.1.233    <none>        EulerOS 2.0 (SP9x86_64)   4.18.0-147.5.1.6.h1524.eulerosv2r9.x86_64   containerd://1.7.29-11-g0a540c3d5
+
+=== kubectl get pods -A ===
+NAMESPACE        NAME                                                  READY   STATUS    RESTARTS   AGE
+argo             argo-workflows-server-864f5b46d8-7kzfp                1/1     Running   0          105m
+argo             argo-workflows-workflow-controller-6b996f7c4b-sdxv2   1/1     Running   0          105m
+ingress-nginx    ingress-nginx-controller-5ddbb4b744-zp78r             1/1     Running   0          94m
+jupyter          hub-567cfd6558-5n42x                                  1/1     Running   0          39s
+jupyter          proxy-6ff7d594fc-kngwn                                1/1     Running   0          39s
+kube-system      coredns-7b8b788f55-g59vm                              1/1     Running   0          3h11m
+kube-system      coredns-7b8b788f55-rsxrs                              0/1     Pending   0          3h11m
+kube-system      everest-csi-controller-84fcc48568-5z6sh               1/1     Running   0          3h11m
+kube-system      everest-csi-controller-84fcc48568-v2sv6               0/1     Pending   0          3h11m
+kube-system      everest-csi-driver-8rxzc                              1/1     Running   0          3h8m
+kube-system      icagent-8pvnm                                         1/1     Running   0          3h8m
+spark-operator   spark-operator-7dcb44748b-xvv6t                       1/1     Running   0          112m
+
+=== helm releases (via secrets) ===
+NS               NAME                                       STATUS
+argo             sh.helm.release.v1.argo-workflows.v1       deployed
+default          sh.helm.release.v1.spark-etl-platform.v1   deployed
+ingress-nginx    sh.helm.release.v1.ingress-nginx.v1        deployed
+jupyter          sh.helm.release.v1.jupyterhub.v1           deployed
+kube-system      sh.helm.release.v1.cceaddon-coredns.v1     deployed
+kube-system      sh.helm.release.v1.cceaddon-everest.v1     deployed
+spark-operator   sh.helm.release.v1.spark-operator.v1       deployed
+
+=== ingress ===
+NAMESPACE   NAME                 CLASS    HOSTS                      ADDRESS                  PORTS   AGE
+argo        argo-ingress         <none>   argo.124.70.93.52.nip.io   10.0.1.65,124.70.93.52   80      104m
+jupyter     jupyterhub-ingress   <none>   jhub.124.70.93.52.nip.io   10.0.1.65,124.70.93.52   80      104m
+
+=== svc (LoadBalancer) ===
+NAMESPACE        NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP              PORT(S)                      AGE
+ingress-nginx    ingress-nginx-controller             LoadBalancer   10.247.212.23    10.0.1.65,124.70.93.52   80:31221/TCP,443:31338/TCP   95m

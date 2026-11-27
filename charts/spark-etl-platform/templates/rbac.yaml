@@ -1,0 +1,58 @@
+# ============================================================================
+# RBAC / ServiceAccount（集群级权限由 CCE 委托承担）
+# ============================================================================
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: arcjob
+  namespace: spark
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jupyter-sa
+  namespace: jupyter
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: emr-sa
+  namespace: emr
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: spark-etl-role
+  namespace: spark
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/log", "configmaps", "secrets"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: ["argoproj.io"]
+    resources: ["workflows", "workflowtemplates"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: spark-etl-binding
+  namespace: spark
+subjects:
+  - kind: ServiceAccount
+    name: arcjob
+    namespace: spark
+roleRef:
+  kind: Role
+  name: spark-etl-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# OBS 凭据 Secret（由 Terraform 注入，不落盘明文文件）
+apiVersion: v1
+kind: Secret
+metadata:
+  name: obs-creds
+  namespace: spark
+type: Opaque
+stringData:
+  ACCESS_KEY: {{ .Values.obsAccessKey | quote }}
+  SECRET_KEY: {{ .Values.obsSecretKey | quote }}

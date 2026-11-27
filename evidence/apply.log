@@ -1,0 +1,2448 @@
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_swr_organization.main: Creating...
+huaweicloud_vpc_eip.ingress: Creating...
+huaweicloud_vpc.main: Creating...
+huaweicloud_kms_key.main: Creating...
+huaweicloud_identity_agency.cce: Creating...
+huaweicloud_networking_secgroup.main: Creating...
+huaweicloud_vpc_eip.cluster: Creating...
+huaweicloud_swr_organization.main: Creation complete after 0s [id=sparketl]
+huaweicloud_networking_secgroup.main: Creation complete after 1s [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_networking_secgroup_rule.allow_http: Creating...
+huaweicloud_networking_secgroup_rule.allow_https: Creating...
+huaweicloud_networking_secgroup_rule.allow_https: Creation complete after 1s [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_networking_secgroup_rule.allow_http: Creation complete after 1s [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_identity_agency.cce: Creation complete after 4s [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_vpc.main: Creation complete after 7s [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_vpc_subnet.az1: Creating...
+huaweicloud_vpc_subnet.az2: Creating...
+huaweicloud_vpc_eip.ingress: Creation complete after 7s [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_vpc_eip.cluster: Creation complete after 8s [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_kms_key.main: Still creating... [00m10s elapsed]
+huaweicloud_kms_key.main: Creation complete after 11s [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_csms_secret.jhub: Creating...
+huaweicloud_obs_bucket.datalake: Creating...
+huaweicloud_obs_bucket.app_code: Creating...
+huaweicloud_csms_secret.jhub: Creation complete after 4s [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.app_code: Creation complete after 4s [id=spark-etl-app-code]
+huaweicloud_obs_bucket.datalake: Creation complete after 4s [id=spark-etl-datalake]
+huaweicloud_vpc_subnet.az2: Creation complete after 9s [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_vpc_subnet.az1: Still creating... [00m10s elapsed]
+huaweicloud_vpc_subnet.az1: Creation complete after 13s [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_elb_loadbalancer.ingress: Creating...
+huaweicloud_elb_loadbalancer.ingress: Creation complete after 6s [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+
+Error: "eip" must contain a valid network IP address, got "5e614e37-45d8-420e-9952-1d8caf46c38a"
+
+  with huaweicloud_cce_cluster.main,
+  on main.tf line 167, in resource "huaweicloud_cce_cluster" "main":
+ 167:   eip                    = huaweicloud_vpc_eip.cluster.id
+
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_vpc.main: Refreshing state... [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_kms_key.main: Refreshing state... [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_swr_organization.main: Refreshing state... [id=sparketl]
+huaweicloud_identity_agency.cce: Refreshing state... [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_vpc_eip.cluster: Refreshing state... [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_networking_secgroup.main: Refreshing state... [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_vpc_eip.ingress: Refreshing state... [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_csms_secret.jhub: Refreshing state... [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.datalake: Refreshing state... [id=spark-etl-datalake]
+huaweicloud_obs_bucket.app_code: Refreshing state... [id=spark-etl-app-code]
+huaweicloud_networking_secgroup_rule.allow_http: Refreshing state... [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_networking_secgroup_rule.allow_https: Refreshing state... [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_vpc_subnet.az2: Refreshing state... [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_vpc_subnet.az1: Refreshing state... [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_elb_loadbalancer.ingress: Refreshing state... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] will be created
+  + resource "helm_release" "argo_workflows" {
+      + atomic                     = false
+      + chart                      = "argo-workflows"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "argo-workflows"
+      + namespace                  = "argo"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://argoproj.github.io/argo-helm"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "server":
+                  "extraArgs":
+                  - "--auth-mode=server"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "0.41.11"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "kubernetes.io/elb.class": "performance"
+                      "kubernetes.io/elb.id": "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "jupyterhub"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://hub.jupyter.org/helm-chart/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] will be created
+  + resource "helm_release" "spark_operator" {
+      + atomic                     = false
+      + chart                      = "spark-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-operator"
+      + namespace                  = "spark-operator"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubeflow.github.io/spark-operator"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "sparkJobNamespace": "spark"
+                "webhook":
+                  "enable": true
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.4.6"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # huaweicloud_cce_cluster.main will be created
+  + resource "huaweicloud_cce_cluster" "main" {
+      + alias                        = (known after apply)
+      + authentication_mode          = "rbac"
+      + billing_mode                 = (known after apply)
+      + category                     = (known after apply)
+      + certificate_clusters         = (known after apply)
+      + certificate_users            = (known after apply)
+      + charging_mode                = (known after apply)
+      + cluster_type                 = "Standard"
+      + cluster_version              = "v1.28"
+      + container_network_cidr       = (known after apply)
+      + container_network_type       = "VPC-Network"
+      + custom_san                   = (known after apply)
+      + description                  = (known after apply)
+      + eip                          = "114.116.244.186"
+      + enable_distribute_management = (known after apply)
+      + eni_subnet_cidr              = (known after apply)
+      + eni_subnet_id                = (known after apply)
+      + enterprise_project_id        = (known after apply)
+      + flavor_id                    = "cce.s1.small"
+      + highway_subnet_id            = (known after apply)
+      + id                           = (known after apply)
+      + ipv6_enable                  = (known after apply)
+      + kube_config_raw              = (known after apply)
+      + kube_proxy_mode              = (known after apply)
+      + name                         = "spark-etl-cce"
+      + region                       = (known after apply)
+      + security_group_id            = "a285b47d-1fe5-4f81-94b7-d86417d80c2c"
+      + service_network_cidr         = (known after apply)
+      + status                       = (known after apply)
+      + subnet_id                    = "ec6f06c2-1ec3-4b29-8507-38501c5b29fb"
+      + support_istio                = (known after apply)
+      + tags                         = (known after apply)
+      + timezone                     = (known after apply)
+      + vpc_id                       = "dafcf29e-eb51-441e-a1ef-bf7317dc2e0b"
+
+      + encryption_config (known after apply)
+
+      + masters (known after apply)
+    }
+
+  # huaweicloud_cce_node_pool.ondemand will be created
+  + resource "huaweicloud_cce_node_pool" "ondemand" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4a"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.2xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 1
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"        = "spark"
+          + "lifecycle"  = "OnDemand"
+          + "spark-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 1
+      + name                           = "etl-ondemand"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_cce_node_pool.spot will be created
+  + resource "huaweicloud_cce_node_pool" "spot" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4b"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 0
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"       = "spark"
+          + "lifecycle" = "Spot"
+          + "spot-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 0
+      + name                           = "etl-spot"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_elb_loadbalancer.ingress will be updated in-place
+  ~ resource "huaweicloud_elb_loadbalancer" "ingress" {
+        id                         = "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+      - l4_flavor_id               = "ec6df27e-8ae9-45e3-828f-a6de45e3e109" -> null
+      - l7_flavor_id               = "66da67e5-e36b-4c9a-8c06-197ae9e92988" -> null
+        name                       = "spark-etl-elb"
+        tags                       = {}
+        # (31 unchanged attributes hidden)
+    }
+
+Plan: 8 to add, 1 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cce_cluster_id      = (known after apply)
+  + cce_kubeconfig_url  = (known after apply)
+huaweicloud_cce_cluster.main: Creating...
+huaweicloud_elb_loadbalancer.ingress: Modifying... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+
+Error: error creating CCE cluster: Internal Server Error: [POST https://cce.cn-north-4.myhuaweicloud.com/api/v3/projects/cc2cb3d01b0c46798d77c4cd8ecf6b7e/clusters], request_id: f6fe89af39d75712093f0f28d11f5ef2, error message: {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","code":500,"errorCode":"CCE.01500001","errorMessage":"Internal error.","error_code":"CCE_CM.0101","error_msg":"Internal Error","message":"Get user agency token error, failed to get token from iam: unexpect response code 400, requestID: ea96243e25d4614217e54ad510c3d180, response body: {\"error\":{\"code\":400,\"message\":\"can't find assumeToDomainName by assumeToDomainId\",\"title\":\"Bad Request\"}}","reason":"InternalError"}
+
+  with huaweicloud_cce_cluster.main,
+  on main.tf line 159, in resource "huaweicloud_cce_cluster" "main":
+ 159: resource "huaweicloud_cce_cluster" "main" {
+
+
+Error: error updating ELB LoadBalancer: Bad request with: [PUT https://elb.cn-north-4.myhuaweicloud.com/v3/cc2cb3d01b0c46798d77c4cd8ecf6b7e/elb/loadbalancers/6d66392a-51d1-4ece-8768-ac83d0bf6c38], request_id: c0e20a3421e844bc71e81d4bc71e8147, error message: {"error_msg":"Not allowed to update both l4_flavor_id and l7_flavor_id to null or empty.","error_code":"ELB.8959","request_id":"c0e20a3421e844bc71e81d4bc71e8147"}
+
+  with huaweicloud_elb_loadbalancer.ingress,
+  on main.tf line 274, in resource "huaweicloud_elb_loadbalancer" "ingress":
+ 274: resource "huaweicloud_elb_loadbalancer" "ingress" {
+
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_vpc_eip.ingress: Refreshing state... [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_vpc.main: Refreshing state... [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_kms_key.main: Refreshing state... [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_swr_organization.main: Refreshing state... [id=sparketl]
+huaweicloud_identity_agency.cce: Refreshing state... [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_vpc_eip.cluster: Refreshing state... [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_networking_secgroup.main: Refreshing state... [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_csms_secret.jhub: Refreshing state... [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.datalake: Refreshing state... [id=spark-etl-datalake]
+huaweicloud_obs_bucket.app_code: Refreshing state... [id=spark-etl-app-code]
+huaweicloud_networking_secgroup_rule.allow_http: Refreshing state... [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_networking_secgroup_rule.allow_https: Refreshing state... [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_vpc_subnet.az1: Refreshing state... [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_vpc_subnet.az2: Refreshing state... [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_elb_loadbalancer.ingress: Refreshing state... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] will be created
+  + resource "helm_release" "argo_workflows" {
+      + atomic                     = false
+      + chart                      = "argo-workflows"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "argo-workflows"
+      + namespace                  = "argo"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://argoproj.github.io/argo-helm"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "server":
+                  "extraArgs":
+                  - "--auth-mode=server"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "0.41.11"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "kubernetes.io/elb.class": "performance"
+                      "kubernetes.io/elb.id": "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "jupyterhub"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://hub.jupyter.org/helm-chart/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] will be created
+  + resource "helm_release" "spark_operator" {
+      + atomic                     = false
+      + chart                      = "spark-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-operator"
+      + namespace                  = "spark-operator"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubeflow.github.io/spark-operator"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "sparkJobNamespace": "spark"
+                "webhook":
+                  "enable": true
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.4.6"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # huaweicloud_cce_cluster.main will be created
+  + resource "huaweicloud_cce_cluster" "main" {
+      + alias                        = (known after apply)
+      + authentication_mode          = "rbac"
+      + billing_mode                 = (known after apply)
+      + category                     = (known after apply)
+      + certificate_clusters         = (known after apply)
+      + certificate_users            = (known after apply)
+      + charging_mode                = (known after apply)
+      + cluster_type                 = "Standard"
+      + cluster_version              = "v1.28"
+      + container_network_cidr       = (known after apply)
+      + container_network_type       = "VPC-Network"
+      + custom_san                   = (known after apply)
+      + description                  = (known after apply)
+      + eip                          = "114.116.244.186"
+      + enable_distribute_management = (known after apply)
+      + eni_subnet_cidr              = (known after apply)
+      + eni_subnet_id                = (known after apply)
+      + enterprise_project_id        = (known after apply)
+      + flavor_id                    = "cce.s1.small"
+      + highway_subnet_id            = (known after apply)
+      + id                           = (known after apply)
+      + ipv6_enable                  = (known after apply)
+      + kube_config_raw              = (known after apply)
+      + kube_proxy_mode              = (known after apply)
+      + name                         = "spark-etl-cce"
+      + region                       = (known after apply)
+      + security_group_id            = "a285b47d-1fe5-4f81-94b7-d86417d80c2c"
+      + service_network_cidr         = (known after apply)
+      + status                       = (known after apply)
+      + subnet_id                    = "ec6f06c2-1ec3-4b29-8507-38501c5b29fb"
+      + support_istio                = (known after apply)
+      + tags                         = (known after apply)
+      + timezone                     = (known after apply)
+      + vpc_id                       = "dafcf29e-eb51-441e-a1ef-bf7317dc2e0b"
+
+      + encryption_config (known after apply)
+
+      + masters (known after apply)
+    }
+
+  # huaweicloud_cce_node_pool.ondemand will be created
+  + resource "huaweicloud_cce_node_pool" "ondemand" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4a"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.2xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 1
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"        = "spark"
+          + "lifecycle"  = "OnDemand"
+          + "spark-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 1
+      + name                           = "etl-ondemand"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_cce_node_pool.spot will be created
+  + resource "huaweicloud_cce_node_pool" "spot" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4b"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 0
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"       = "spark"
+          + "lifecycle" = "Spot"
+          + "spot-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 0
+      + name                           = "etl-spot"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_identity_agency.cce_admin_trust will be created
+  + resource "huaweicloud_identity_agency" "cce_admin_trust" {
+      + all_resources_roles          = [
+          + "Tenant Administrator",
+        ]
+      + create_time                  = (known after apply)
+      + delegated_domain_name        = "op_svc_cce"
+      + description                  = "Cloud service agency for CCE (auto-created by Terraform)"
+      + duration                     = "FOREVER"
+      + expire_time                  = (known after apply)
+      + force_dissociate_v5_policies = false
+      + id                           = (known after apply)
+      + name                         = "cce_admin_trust"
+    }
+
+Plan: 9 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cce_cluster_id      = (known after apply)
+  + cce_kubeconfig_url  = (known after apply)
+huaweicloud_identity_agency.cce_admin_trust: Creating...
+huaweicloud_identity_agency.cce_admin_trust: Creation complete after 4s [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_cce_cluster.main: Creating...
+
+Error: error creating CCE cluster: Bad request with: [POST https://cce.cn-north-4.myhuaweicloud.com/api/v3/projects/cc2cb3d01b0c46798d77c4cd8ecf6b7e/clusters], request_id: d6e9f5f98a124df1921df62472f25285, error message: {"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","code":400,"errorCode":"CCE.01400001","errorMessage":"Invalid request.","error_code":"CCE_CM.0004","error_msg":"Request is invalid","message":"[unsupport network mode, Cluster type is invalid]","reason":"BadRequest"}
+
+  with huaweicloud_cce_cluster.main,
+  on main.tf line 169, in resource "huaweicloud_cce_cluster" "main":
+ 169: resource "huaweicloud_cce_cluster" "main" {
+
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_swr_organization.main: Refreshing state... [id=sparketl]
+huaweicloud_vpc.main: Refreshing state... [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_kms_key.main: Refreshing state... [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_identity_agency.cce: Refreshing state... [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_networking_secgroup.main: Refreshing state... [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_identity_agency.cce_admin_trust: Refreshing state... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_vpc_eip.ingress: Refreshing state... [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_vpc_eip.cluster: Refreshing state... [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_csms_secret.jhub: Refreshing state... [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.datalake: Refreshing state... [id=spark-etl-datalake]
+huaweicloud_obs_bucket.app_code: Refreshing state... [id=spark-etl-app-code]
+huaweicloud_networking_secgroup_rule.allow_https: Refreshing state... [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_networking_secgroup_rule.allow_http: Refreshing state... [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_vpc_subnet.az1: Refreshing state... [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_vpc_subnet.az2: Refreshing state... [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_elb_loadbalancer.ingress: Refreshing state... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] will be created
+  + resource "helm_release" "argo_workflows" {
+      + atomic                     = false
+      + chart                      = "argo-workflows"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "argo-workflows"
+      + namespace                  = "argo"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://argoproj.github.io/argo-helm"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "server":
+                  "extraArgs":
+                  - "--auth-mode=server"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "0.41.11"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "kubernetes.io/elb.class": "performance"
+                      "kubernetes.io/elb.id": "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "jupyterhub"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://hub.jupyter.org/helm-chart/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] will be created
+  + resource "helm_release" "spark_operator" {
+      + atomic                     = false
+      + chart                      = "spark-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-operator"
+      + namespace                  = "spark-operator"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubeflow.github.io/spark-operator"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "sparkJobNamespace": "spark"
+                "webhook":
+                  "enable": true
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.4.6"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # huaweicloud_cce_cluster.main will be created
+  + resource "huaweicloud_cce_cluster" "main" {
+      + alias                        = (known after apply)
+      + authentication_mode          = "rbac"
+      + billing_mode                 = (known after apply)
+      + category                     = (known after apply)
+      + certificate_clusters         = (known after apply)
+      + certificate_users            = (known after apply)
+      + charging_mode                = (known after apply)
+      + cluster_type                 = "VirtualMachine"
+      + cluster_version              = "v1.28"
+      + container_network_cidr       = (known after apply)
+      + container_network_type       = "vpc-router"
+      + custom_san                   = (known after apply)
+      + description                  = (known after apply)
+      + eip                          = "114.116.244.186"
+      + enable_distribute_management = (known after apply)
+      + eni_subnet_cidr              = (known after apply)
+      + eni_subnet_id                = (known after apply)
+      + enterprise_project_id        = (known after apply)
+      + flavor_id                    = "cce.s1.small"
+      + highway_subnet_id            = (known after apply)
+      + id                           = (known after apply)
+      + ipv6_enable                  = (known after apply)
+      + kube_config_raw              = (known after apply)
+      + kube_proxy_mode              = (known after apply)
+      + name                         = "spark-etl-cce"
+      + region                       = (known after apply)
+      + security_group_id            = "a285b47d-1fe5-4f81-94b7-d86417d80c2c"
+      + service_network_cidr         = (known after apply)
+      + status                       = (known after apply)
+      + subnet_id                    = "ec6f06c2-1ec3-4b29-8507-38501c5b29fb"
+      + support_istio                = (known after apply)
+      + tags                         = (known after apply)
+      + timezone                     = (known after apply)
+      + vpc_id                       = "dafcf29e-eb51-441e-a1ef-bf7317dc2e0b"
+
+      + encryption_config (known after apply)
+
+      + masters (known after apply)
+    }
+
+  # huaweicloud_cce_node_pool.ondemand will be created
+  + resource "huaweicloud_cce_node_pool" "ondemand" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4a"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.2xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 1
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"        = "spark"
+          + "lifecycle"  = "OnDemand"
+          + "spark-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 1
+      + name                           = "etl-ondemand"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_cce_node_pool.spot will be created
+  + resource "huaweicloud_cce_node_pool" "spot" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4b"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 0
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"       = "spark"
+          + "lifecycle" = "Spot"
+          + "spot-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 0
+      + name                           = "etl-spot"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_identity_agency.cce_admin_trust will be updated in-place
+  ~ resource "huaweicloud_identity_agency" "cce_admin_trust" {
+      - delegated_service_name       = "op_svc_cce" -> null
+        id                           = "019fb0dbb3697007ad56d70ac9ee102f"
+        name                         = "cce_admin_trust"
+        # (8 unchanged attributes hidden)
+    }
+
+Plan: 8 to add, 1 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cce_cluster_id      = (known after apply)
+  + cce_kubeconfig_url  = (known after apply)
+huaweicloud_identity_agency.cce_admin_trust: Modifying... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_identity_agency.cce_admin_trust: Still modifying... [id=019fb0dbb3697007ad56d70ac9ee102f, 00m10s elapsed]
+huaweicloud_identity_agency.cce_admin_trust: Modifications complete after 12s [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_cce_cluster.main: Creating...
+huaweicloud_cce_cluster.main: Still creating... [00m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [00m20s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [00m30s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [00m40s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [00m50s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m00s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m20s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m30s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m40s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [01m50s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m00s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m20s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m30s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m40s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [02m50s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m00s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m20s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m30s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m40s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [03m50s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m00s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m20s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m30s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m40s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [04m50s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [05m00s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [05m10s elapsed]
+huaweicloud_cce_cluster.main: Still creating... [05m20s elapsed]
+huaweicloud_cce_cluster.main: Creation complete after 5m26s [id=f90938e7-8bbe-11f1-802a-0255ac10024d]
+huaweicloud_cce_node_pool.ondemand: Creating...
+huaweicloud_cce_node_pool.spot: Creating...
+huaweicloud_cce_node_pool.ondemand: Still creating... [00m10s elapsed]
+huaweicloud_cce_node_pool.spot: Still creating... [00m10s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [00m20s elapsed]
+huaweicloud_cce_node_pool.spot: Still creating... [00m20s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [00m30s elapsed]
+huaweicloud_cce_node_pool.spot: Still creating... [00m30s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [00m40s elapsed]
+huaweicloud_cce_node_pool.spot: Still creating... [00m40s elapsed]
+huaweicloud_cce_node_pool.spot: Creation complete after 41s [id=bbad5ba2-8bbf-11f1-8f67-0255ac100263]
+huaweicloud_cce_node_pool.ondemand: Still creating... [00m50s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m00s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m10s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m20s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m30s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m40s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [01m50s elapsed]
+huaweicloud_cce_node_pool.ondemand: Still creating... [02m00s elapsed]
+huaweicloud_cce_node_pool.ondemand: Creation complete after 2m2s [id=bb92f02a-8bbf-11f1-802a-0255ac10024d]
+helm_release.spark_operator[0]: Creating...
+helm_release.ingress_nginx[0]: Creating...
+helm_release.spark_operator[0]: Still creating... [00m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m20s elapsed]
+helm_release.argo_workflows[0]: Creating...
+helm_release.ingress_nginx[0]: Still creating... [00m20s elapsed]
+
+Error: Kubernetes cluster unreachable: specifying a root certificates file with the insecure flag is not allowed
+
+  with helm_release.ingress_nginx[0],
+  on addons.tf line 72, in resource "helm_release" "ingress_nginx":
+  72: resource "helm_release" "ingress_nginx" {
+
+
+Error: Kubernetes cluster unreachable: specifying a root certificates file with the insecure flag is not allowed
+
+  with helm_release.spark_operator[0],
+  on addons.tf line 103, in resource "helm_release" "spark_operator":
+ 103: resource "helm_release" "spark_operator" {
+
+
+Error: Kubernetes cluster unreachable: specifying a root certificates file with the insecure flag is not allowed
+
+  with helm_release.argo_workflows[0],
+  on addons.tf line 125, in resource "helm_release" "argo_workflows":
+ 125: resource "helm_release" "argo_workflows" {
+
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_identity_agency.cce_admin_trust: Refreshing state... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_kms_key.main: Refreshing state... [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_swr_organization.main: Refreshing state... [id=sparketl]
+huaweicloud_vpc.main: Refreshing state... [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_identity_agency.cce: Refreshing state... [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_vpc_eip.cluster: Refreshing state... [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_vpc_eip.ingress: Refreshing state... [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_networking_secgroup.main: Refreshing state... [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_csms_secret.jhub: Refreshing state... [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.app_code: Refreshing state... [id=spark-etl-app-code]
+huaweicloud_obs_bucket.datalake: Refreshing state... [id=spark-etl-datalake]
+huaweicloud_networking_secgroup_rule.allow_http: Refreshing state... [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_networking_secgroup_rule.allow_https: Refreshing state... [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_vpc_subnet.az1: Refreshing state... [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_vpc_subnet.az2: Refreshing state... [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_elb_loadbalancer.ingress: Refreshing state... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+huaweicloud_cce_cluster.main: Refreshing state... [id=f90938e7-8bbe-11f1-802a-0255ac10024d]
+huaweicloud_cce_node_pool.spot: Refreshing state... [id=bbad5ba2-8bbf-11f1-8f67-0255ac100263]
+huaweicloud_cce_node_pool.ondemand: Refreshing state... [id=bb92f02a-8bbf-11f1-802a-0255ac10024d]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] will be created
+  + resource "helm_release" "argo_workflows" {
+      + atomic                     = false
+      + chart                      = "argo-workflows"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "argo-workflows"
+      + namespace                  = "argo"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://argoproj.github.io/argo-helm"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "server":
+                  "extraArgs":
+                  - "--auth-mode=server"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "0.41.11"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "kubernetes.io/elb.class": "performance"
+                      "kubernetes.io/elb.id": "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "jupyterhub"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://hub.jupyter.org/helm-chart/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] will be created
+  + resource "helm_release" "spark_operator" {
+      + atomic                     = false
+      + chart                      = "spark-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-operator"
+      + namespace                  = "spark-operator"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubeflow.github.io/spark-operator"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "sparkJobNamespace": "spark"
+                "webhook":
+                  "enable": true
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.4.6"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # huaweicloud_identity_agency.cce_admin_trust will be updated in-place
+  ~ resource "huaweicloud_identity_agency" "cce_admin_trust" {
+      - delegated_service_name       = "op_svc_cce" -> null
+        id                           = "019fb0dbb3697007ad56d70ac9ee102f"
+        name                         = "cce_admin_trust"
+        # (8 unchanged attributes hidden)
+    }
+
+Plan: 5 to add, 1 to change, 0 to destroy.
+huaweicloud_identity_agency.cce_admin_trust: Modifying... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_identity_agency.cce_admin_trust: Still modifying... [id=019fb0dbb3697007ad56d70ac9ee102f, 00m10s elapsed]
+huaweicloud_identity_agency.cce_admin_trust: Modifications complete after 13s [id=019fb0dbb3697007ad56d70ac9ee102f]
+helm_release.argo_workflows[0]: Creating...
+helm_release.ingress_nginx[0]: Creating...
+helm_release.argo_workflows[0]: Still creating... [00m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m20s elapsed]
+helm_release.spark_operator[0]: Creating...
+helm_release.argo_workflows[0]: Still creating... [00m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [15m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [15m10s elapsed]
+
+Warning: Helm release "" was created but has a failed status. Use the `helm` command to investigate the error, correct it, then run Terraform again.
+
+  with helm_release.spark_operator[0],
+  on addons.tf line 103, in resource "helm_release" "spark_operator":
+ 103: resource "helm_release" "spark_operator" {
+
+(and one more similar warning elsewhere)
+
+Error: could not download chart: looks like "https://kubernetes.github.io/ingress-nginx" is not a valid chart repository or cannot be reached: Get "https://kubernetes.github.io/ingress-nginx/index.yaml": read tcp 10.11.220.166:37402->185.199.108.153:443: wsarecv: An existing connection was forcibly closed by the remote host.
+
+  with helm_release.ingress_nginx[0],
+  on addons.tf line 72, in resource "helm_release" "ingress_nginx":
+  72: resource "helm_release" "ingress_nginx" {
+
+
+Error: context deadline exceeded
+
+  with helm_release.spark_operator[0],
+  on addons.tf line 103, in resource "helm_release" "spark_operator":
+ 103: resource "helm_release" "spark_operator" {
+
+
+Error: context deadline exceeded
+
+  with helm_release.argo_workflows[0],
+  on addons.tf line 125, in resource "helm_release" "argo_workflows":
+ 125: resource "helm_release" "argo_workflows" {
+
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+huaweicloud_swr_organization.main: Refreshing state... [id=sparketl]
+huaweicloud_vpc.main: Refreshing state... [id=dafcf29e-eb51-441e-a1ef-bf7317dc2e0b]
+huaweicloud_vpc_eip.cluster: Refreshing state... [id=5e614e37-45d8-420e-9952-1d8caf46c38a]
+huaweicloud_vpc_eip.ingress: Refreshing state... [id=e36769ca-ccd5-478a-ab72-e9471df0a986]
+huaweicloud_identity_agency.cce_admin_trust: Refreshing state... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_identity_agency.cce: Refreshing state... [id=019fb0d65cf971d3b2e1e4928c4d3299]
+huaweicloud_networking_secgroup.main: Refreshing state... [id=a285b47d-1fe5-4f81-94b7-d86417d80c2c]
+huaweicloud_kms_key.main: Refreshing state... [id=40161cee-9761-4d79-80d9-55d13e6b46c8]
+huaweicloud_csms_secret.jhub: Refreshing state... [id=31d8ce30-e00d-43ec-81c8-514f4f7f9314/spark-etl-jhub-login]
+huaweicloud_obs_bucket.datalake: Refreshing state... [id=spark-etl-datalake]
+huaweicloud_obs_bucket.app_code: Refreshing state... [id=spark-etl-app-code]
+huaweicloud_networking_secgroup_rule.allow_https: Refreshing state... [id=dd8f1657-f03f-4e2a-8db4-1a0cf53ef44c]
+huaweicloud_networking_secgroup_rule.allow_http: Refreshing state... [id=8151c884-def5-4b27-a74d-5db671ff2847]
+huaweicloud_vpc_subnet.az1: Refreshing state... [id=ec6f06c2-1ec3-4b29-8507-38501c5b29fb]
+huaweicloud_vpc_subnet.az2: Refreshing state... [id=4c8aed12-3a8d-4dfb-8552-554ce7ae7c70]
+huaweicloud_elb_loadbalancer.ingress: Refreshing state... [id=6d66392a-51d1-4ece-8768-ac83d0bf6c38]
+huaweicloud_cce_cluster.main: Refreshing state... [id=f90938e7-8bbe-11f1-802a-0255ac10024d]
+huaweicloud_cce_node_pool.ondemand: Refreshing state... [id=bb92f02a-8bbf-11f1-802a-0255ac10024d]
+huaweicloud_cce_node_pool.spot: Refreshing state... [id=bbad5ba2-8bbf-11f1-8f67-0255ac100263]
+helm_release.spark_operator[0]: Refreshing state... [id=spark-operator]
+helm_release.argo_workflows[0]: Refreshing state... [id=argo-workflows]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] is tainted, so must be replaced
+-/+ resource "helm_release" "argo_workflows" {
+      ~ chart                      = "argo-workflows" -> "./../charts/vendor/argo-workflows-0.41.11.tgz"
+      ~ id                         = "argo-workflows" -> (known after apply)
+      + manifest                   = (known after apply)
+      ~ metadata                   = [
+          - {
+              - app_version    = "v3.5.8"
+              - chart          = "argo-workflows"
+              - first_deployed = 1785379387
+              - last_deployed  = 1785379387
+              - name           = "argo-workflows"
+              - namespace      = "argo"
+              - notes          = <<-EOT
+                    1. Get Argo Server external IP/domain by running:
+                    
+                    kubectl --namespace argo get services -o wide | grep argo-workflows-server
+                    
+                    2. Submit the hello-world workflow by running:
+                    
+                    argo submit https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/hello-world.yaml --watch
+                EOT
+              - revision       = 1
+              - values         = jsonencode(
+                    {
+                      - server = {
+                          - extraArgs = [
+                              - "--auth-mode=server",
+                            ]
+                        }
+                    }
+                )
+              - version        = "0.41.11"
+            },
+        ] -> (known after apply)
+        name                       = "argo-workflows"
+      - repository                 = "https://argoproj.github.io/argo-helm" -> null
+      ~ status                     = "failed" -> "deployed"
+        # (24 unchanged attributes hidden)
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "./../charts/vendor/ingress-nginx-4.10.1.tgz"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "kubernetes.io/elb.class": "performance"
+                      "kubernetes.io/elb.id": "6d66392a-51d1-4ece-8768-ac83d0bf6c38"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "./../charts/vendor/jupyterhub-3.3.8.tgz"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] is tainted, so must be replaced
+-/+ resource "helm_release" "spark_operator" {
+      ~ chart                      = "spark-operator" -> "./../charts/vendor/spark-operator-1.4.6.tgz"
+      ~ id                         = "spark-operator" -> (known after apply)
+      + manifest                   = (known after apply)
+      ~ metadata                   = [
+          - {
+              - app_version    = "v1beta2-1.6.2-3.5.0"
+              - chart          = "spark-operator"
+              - first_deployed = 1785379398
+              - last_deployed  = 1785379398
+              - name           = "spark-operator"
+              - namespace      = "spark-operator"
+              - revision       = 1
+              - values         = jsonencode(
+                    {
+                      - sparkJobNamespace = "spark"
+                      - webhook           = {
+                          - enable = true
+                        }
+                    }
+                )
+              - version        = "1.4.6"
+                # (1 unchanged attribute hidden)
+            },
+        ] -> (known after apply)
+        name                       = "spark-operator"
+      - repository                 = "https://kubeflow.github.io/spark-operator" -> null
+      ~ status                     = "failed" -> "deployed"
+        # (24 unchanged attributes hidden)
+    }
+
+  # huaweicloud_identity_agency.cce_admin_trust will be updated in-place
+  ~ resource "huaweicloud_identity_agency" "cce_admin_trust" {
+      - delegated_service_name       = "op_svc_cce" -> null
+        id                           = "019fb0dbb3697007ad56d70ac9ee102f"
+        name                         = "cce_admin_trust"
+        # (8 unchanged attributes hidden)
+    }
+
+Plan: 5 to add, 1 to change, 2 to destroy.
+huaweicloud_identity_agency.cce_admin_trust: Modifying... [id=019fb0dbb3697007ad56d70ac9ee102f]
+huaweicloud_identity_agency.cce_admin_trust: Still modifying... [id=019fb0dbb3697007ad56d70ac9ee102f, 00m10s elapsed]
+huaweicloud_identity_agency.cce_admin_trust: Modifications complete after 13s [id=019fb0dbb3697007ad56d70ac9ee102f]
+helm_release.spark_operator[0]: Destroying... [id=spark-operator]
+helm_release.argo_workflows[0]: Destroying... [id=argo-workflows]
+helm_release.ingress_nginx[0]: Creating...
+helm_release.spark_operator[0]: Still destroying... [id=spark-operator, 00m10s elapsed]
+helm_release.argo_workflows[0]: Still destroying... [id=argo-workflows, 00m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m10s elapsed]
+helm_release.spark_operator[0]: Destruction complete after 10s
+helm_release.spark_operator[0]: Creating...
+helm_release.argo_workflows[0]: Destruction complete after 18s
+helm_release.argo_workflows[0]: Creating...
+helm_release.ingress_nginx[0]: Still creating... [00m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [00m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [00m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [00m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [01m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [01m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [01m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [02m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [02m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [02m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [03m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [03m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [03m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [04m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [04m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [04m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [05m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [05m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [05m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [06m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [06m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [06m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [07m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [07m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [07m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [08m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [08m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [08m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [09m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [09m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [09m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [10m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [10m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [10m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [11m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [11m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [11m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [12m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [12m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [12m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [13m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [13m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [13m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m10s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m30s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m20s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m20s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m40s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m30s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m30s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [14m50s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m40s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m40s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [15m00s elapsed]
+helm_release.spark_operator[0]: Still creating... [14m50s elapsed]
+helm_release.argo_workflows[0]: Still creating... [14m50s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [15m10s elapsed]
+helm_release.spark_operator[0]: Still creating... [15m00s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m00s elapsed]
+helm_release.ingress_nginx[0]: Still creating... [15m20s elapsed]
+helm_release.spark_operator[0]: Still creating... [15m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m10s elapsed]
+helm_release.argo_workflows[0]: Still creating... [15m20s elapsed]
+
+Warning: Helm uninstall returned an information message
+
+These resources were kept due to the resource policy:
+[CustomResourceDefinition] workflowtemplates.argoproj.io
+[CustomResourceDefinition] clusterworkflowtemplates.argoproj.io
+[CustomResourceDefinition] cronworkflows.argoproj.io
+[CustomResourceDefinition] workflowartifactgctasks.argoproj.io
+[CustomResourceDefinition] workfloweventbindings.argoproj.io
+[CustomResourceDefinition] workflows.argoproj.io
+[CustomResourceDefinition] workflowtaskresults.argoproj.io
+[CustomResourceDefinition] workflowtasksets.argoproj.io
+
+
+Warning: Helm release "" was created but has a failed status. Use the `helm` command to investigate the error, correct it, then run Terraform again.
+
+  with helm_release.ingress_nginx[0],
+  on addons.tf line 72, in resource "helm_release" "ingress_nginx":
+  72: resource "helm_release" "ingress_nginx" {
+
+(and 2 more similar warnings elsewhere)
+
+Error: failed pre-install: 1 error occurred:
+	* timed out waiting for the condition
+
+
+
+  with helm_release.ingress_nginx[0],
+  on addons.tf line 72, in resource "helm_release" "ingress_nginx":
+  72: resource "helm_release" "ingress_nginx" {
+
+
+Error: context deadline exceeded
+
+  with helm_release.spark_operator[0],
+  on addons.tf line 102, in resource "helm_release" "spark_operator":
+ 102: resource "helm_release" "spark_operator" {
+
+
+Error: context deadline exceeded
+
+  with helm_release.argo_workflows[0],
+  on addons.tf line 122, in resource "helm_release" "argo_workflows":
+ 122: resource "helm_release" "argo_workflows" {
+

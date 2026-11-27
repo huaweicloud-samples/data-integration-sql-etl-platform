@@ -1,0 +1,751 @@
+There are some problems with the CLI configuration:
+╷
+│ Warning: Unable to open CLI configuration file
+│
+│ The CLI configuration file at
+│ "/c/Users/dgcd/WorkBuddy/2026-07-30-08-54-54/huaweicloud/sql-based-etl-on-amazon-eks/infra/.terraformrc-hwmirror"
+│ does not exist.
+╵
+
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # helm_release.argo_workflows[0] will be created
+  + resource "helm_release" "argo_workflows" {
+      + atomic                     = false
+      + chart                      = "argo-workflows"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "argo-workflows"
+      + namespace                  = "argo"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://argoproj.github.io/argo-helm"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "server":
+                  "extraArgs":
+                  - "--auth-mode=server"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "0.41.11"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.ingress_nginx[0] will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = (known after apply)
+      + verify                     = false
+      + version                    = "4.10.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.jupyterhub[0] will be created
+  + resource "helm_release" "jupyterhub" {
+      + atomic                     = false
+      + chart                      = "jupyterhub"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "jupyterhub"
+      + namespace                  = "jupyter"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://hub.jupyter.org/helm-chart/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 1200
+      + values                     = [
+          + (sensitive value),
+        ]
+      + verify                     = false
+      + version                    = "3.3.8"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.platform[0] will be created
+  + resource "helm_release" "platform" {
+      + atomic                     = false
+      + chart                      = "./../charts/spark-etl-platform"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-etl-platform"
+      + namespace                  = "default"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 600
+      + values                     = (known after apply)
+      + verify                     = false
+      + version                    = "1.0.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # helm_release.spark_operator[0] will be created
+  + resource "helm_release" "spark_operator" {
+      + atomic                     = false
+      + chart                      = "spark-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "spark-operator"
+      + namespace                  = "spark-operator"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubeflow.github.io/spark-operator"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 900
+      + values                     = [
+          + <<-EOT
+                "sparkJobNamespace": "spark"
+                "webhook":
+                  "enable": true
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.4.6"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # huaweicloud_cce_cluster.main will be created
+  + resource "huaweicloud_cce_cluster" "main" {
+      + alias                        = (known after apply)
+      + authentication_mode          = "rbac"
+      + billing_mode                 = (known after apply)
+      + category                     = (known after apply)
+      + certificate_clusters         = (known after apply)
+      + certificate_users            = (known after apply)
+      + charging_mode                = (known after apply)
+      + cluster_type                 = "Standard"
+      + cluster_version              = "v1.28"
+      + container_network_cidr       = (known after apply)
+      + container_network_type       = "VPC-Network"
+      + custom_san                   = (known after apply)
+      + description                  = (known after apply)
+      + eip                          = (known after apply)
+      + enable_distribute_management = (known after apply)
+      + eni_subnet_cidr              = (known after apply)
+      + eni_subnet_id                = (known after apply)
+      + enterprise_project_id        = (known after apply)
+      + flavor_id                    = "cce.s1.small"
+      + highway_subnet_id            = (known after apply)
+      + id                           = (known after apply)
+      + ipv6_enable                  = (known after apply)
+      + kube_config_raw              = (known after apply)
+      + kube_proxy_mode              = (known after apply)
+      + name                         = "spark-etl-cce"
+      + region                       = (known after apply)
+      + security_group_id            = (known after apply)
+      + service_network_cidr         = (known after apply)
+      + status                       = (known after apply)
+      + subnet_id                    = (known after apply)
+      + support_istio                = (known after apply)
+      + tags                         = (known after apply)
+      + timezone                     = (known after apply)
+      + vpc_id                       = (known after apply)
+
+      + encryption_config (known after apply)
+
+      + masters (known after apply)
+    }
+
+  # huaweicloud_cce_node_pool.ondemand will be created
+  + resource "huaweicloud_cce_node_pool" "ondemand" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4a"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.2xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 1
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"        = "spark"
+          + "lifecycle"  = "OnDemand"
+          + "spark-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 1
+      + name                           = "etl-ondemand"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_cce_node_pool.spot will be created
+  + resource "huaweicloud_cce_node_pool" "spot" {
+      + auto_renew                     = (known after apply)
+      + availability_zone              = "cn-north-4b"
+      + billing_mode                   = (known after apply)
+      + charging_mode                  = (known after apply)
+      + cluster_id                     = (known after apply)
+      + current_node_count             = (known after apply)
+      + enterprise_project_id          = (known after apply)
+      + flavor_id                      = "s6.xlarge.2"
+      + id                             = (known after apply)
+      + ignore_initial_node_count      = true
+      + initial_node_count             = 0
+      + initialized_conditions         = (known after apply)
+      + label_policy_on_existing_nodes = (known after apply)
+      + labels                         = {
+          + "app"       = "spark"
+          + "lifecycle" = "Spot"
+          + "spot-node" = "true"
+        }
+      + max_node_count                 = 5
+      + max_pods                       = (known after apply)
+      + min_node_count                 = 0
+      + name                           = "etl-spot"
+      + os                             = "EulerOS 2.9"
+      + password                       = (sensitive value)
+      + region                         = (known after apply)
+      + runtime                        = (known after apply)
+      + security_groups                = (known after apply)
+      + status                         = (known after apply)
+      + subnet_id                      = (known after apply)
+      + tag_policy_on_existing_nodes   = (known after apply)
+      + tags                           = (known after apply)
+      + taint_policy_on_existing_nodes = (known after apply)
+      + type                           = (known after apply)
+
+      + data_volumes {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 100
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+
+      + extend_params (known after apply)
+
+      + extension_scale_groups (known after apply)
+
+      + hostname_config (known after apply)
+
+      + root_volume {
+          + dss_pool_id    = (known after apply)
+          + extend_params  = (known after apply)
+          + hw_passthrough = (known after apply)
+          + iops           = (known after apply)
+          + kms_key_id     = (known after apply)
+          + size           = 40
+          + throughput     = (known after apply)
+          + volumetype     = "SAS"
+        }
+    }
+
+  # huaweicloud_csms_secret.jhub will be created
+  + resource "huaweicloud_csms_secret" "jhub" {
+      + create_time           = (known after apply)
+      + description           = "JupyterHub login for spark-etl"
+      + enterprise_project_id = (known after apply)
+      + expire_time           = (known after apply)
+      + id                    = (known after apply)
+      + kms_key_id            = (known after apply)
+      + latest_version        = (known after apply)
+      + name                  = "spark-etl-jhub-login"
+      + region                = (known after apply)
+      + secret_id             = (known after apply)
+      + secret_text           = (sensitive value)
+      + secret_type           = "COMMON"
+      + status                = (known after apply)
+      + tags                  = (known after apply)
+      + version_stages        = (known after apply)
+    }
+
+  # huaweicloud_elb_loadbalancer.ingress will be created
+  + resource "huaweicloud_elb_loadbalancer" "ingress" {
+      + autoscaling_enabled   = (known after apply)
+      + availability_zone     = [
+          + "cn-north-4a",
+        ]
+      + backend_subnets       = (known after apply)
+      + bandwidth_charge_mode = (known after apply)
+      + bandwidth_id          = (known after apply)
+      + bandwidth_size        = (known after apply)
+      + charge_mode           = (known after apply)
+      + charging_mode         = (known after apply)
+      + created_at            = (known after apply)
+      + cross_vpc_backend     = (known after apply)
+      + elb_virsubnet_type    = (known after apply)
+      + enterprise_project_id = (known after apply)
+      + frozen_scene          = (known after apply)
+      + guaranteed            = (known after apply)
+      + gw_flavor_id          = (known after apply)
+      + id                    = (known after apply)
+      + iptype                = (known after apply)
+      + ipv4_address          = (known after apply)
+      + ipv4_eip              = (known after apply)
+      + ipv4_eip_id           = (known after apply)
+      + ipv4_port_id          = (known after apply)
+      + ipv4_subnet_id        = (known after apply)
+      + ipv6_address          = (known after apply)
+      + ipv6_eip              = (known after apply)
+      + ipv6_eip_id           = (known after apply)
+      + loadbalancer_type     = (known after apply)
+      + min_l7_flavor_id      = (known after apply)
+      + name                  = "spark-etl-elb"
+      + operating_status      = (known after apply)
+      + protection_status     = (known after apply)
+      + public_border_group   = (known after apply)
+      + region                = (known after apply)
+      + sharetype             = (known after apply)
+      + tags                  = (known after apply)
+      + updated_at            = (known after apply)
+      + vpc_id                = (known after apply)
+      + waf_failure_action    = (known after apply)
+    }
+
+  # huaweicloud_identity_agency.cce will be created
+  + resource "huaweicloud_identity_agency" "cce" {
+      + create_time                  = (known after apply)
+      + delegated_service_name       = "op_svc_cce"
+      + description                  = "Agency for CCE to access OBS/DEW/SWR/LTS"
+      + duration                     = "FOREVER"
+      + expire_time                  = (known after apply)
+      + force_dissociate_v5_policies = false
+      + id                           = (known after apply)
+      + name                         = "spark-etl-cce-agency"
+
+      + project_role {
+          + project = "cn-north-4"
+          + roles   = [
+              + "KMS Administrator",
+              + "LTS FullAccess",
+              + "OBS OperateAccess",
+              + "SWR Admin",
+            ]
+        }
+    }
+
+  # huaweicloud_kms_key.main will be created
+  + resource "huaweicloud_kms_key" "main" {
+      + creation_date           = (known after apply)
+      + default_key_flag        = (known after apply)
+      + domain_id               = (known after apply)
+      + enterprise_project_id   = (known after apply)
+      + expiration_time         = (known after apply)
+      + id                      = (known after apply)
+      + is_enabled              = true
+      + key_algorithm           = (known after apply)
+      + key_alias               = "spark-etl-key"
+      + key_id                  = (known after apply)
+      + key_state               = (known after apply)
+      + key_usage               = (known after apply)
+      + keystore_id             = (known after apply)
+      + origin                  = (known after apply)
+      + pending_days            = "7"
+      + region                  = (known after apply)
+      + rotation_interval       = (known after apply)
+      + rotation_number         = (known after apply)
+      + scheduled_deletion_date = (known after apply)
+      + tags                    = (known after apply)
+    }
+
+  # huaweicloud_networking_secgroup.main will be created
+  + resource "huaweicloud_networking_secgroup" "main" {
+      + created_at            = (known after apply)
+      + description           = "Security group for spark-etl"
+      + enterprise_project_id = (known after apply)
+      + id                    = (known after apply)
+      + name                  = "spark-etl-sg"
+      + region                = (known after apply)
+      + rules                 = (known after apply)
+      + tags                  = (known after apply)
+      + updated_at            = (known after apply)
+    }
+
+  # huaweicloud_networking_secgroup_rule.allow_http will be created
+  + resource "huaweicloud_networking_secgroup_rule" "allow_http" {
+      + action                  = (known after apply)
+      + direction               = "ingress"
+      + ethertype               = "IPv4"
+      + id                      = (known after apply)
+      + port_range_max          = 80
+      + port_range_min          = 80
+      + ports                   = (known after apply)
+      + priority                = (known after apply)
+      + protocol                = "tcp"
+      + region                  = (known after apply)
+      + remote_address_group_id = (known after apply)
+      + remote_group_id         = (known after apply)
+      + remote_ip_prefix        = "0.0.0.0/0"
+      + security_group_id       = (known after apply)
+    }
+
+  # huaweicloud_networking_secgroup_rule.allow_https will be created
+  + resource "huaweicloud_networking_secgroup_rule" "allow_https" {
+      + action                  = (known after apply)
+      + direction               = "ingress"
+      + ethertype               = "IPv4"
+      + id                      = (known after apply)
+      + port_range_max          = 443
+      + port_range_min          = 443
+      + ports                   = (known after apply)
+      + priority                = (known after apply)
+      + protocol                = "tcp"
+      + region                  = (known after apply)
+      + remote_address_group_id = (known after apply)
+      + remote_group_id         = (known after apply)
+      + remote_ip_prefix        = "0.0.0.0/0"
+      + security_group_id       = (known after apply)
+    }
+
+  # huaweicloud_obs_bucket.app_code will be created
+  + resource "huaweicloud_obs_bucket" "app_code" {
+      + acl                   = "private"
+      + bucket                = "spark-etl-app-code"
+      + bucket_domain_name    = (known after apply)
+      + bucket_key_enabled    = (known after apply)
+      + bucket_version        = (known after apply)
+      + encryption            = true
+      + enterprise_project_id = (known after apply)
+      + force_destroy         = true
+      + id                    = (known after apply)
+      + kms_data_encryption   = (known after apply)
+      + kms_key_id            = (known after apply)
+      + kms_key_project_id    = (known after apply)
+      + multi_az              = (known after apply)
+      + policy                = (known after apply)
+      + policy_format         = "obs"
+      + quota                 = 0
+      + region                = (known after apply)
+      + sse_algorithm         = (known after apply)
+      + storage_class         = "STANDARD"
+      + storage_info          = (known after apply)
+      + tags                  = {
+          + "project" = "spark-etl"
+          + "source"  = "aws-samples-migrated"
+        }
+      + user_domain_names     = (known after apply)
+      + versioning            = true
+    }
+
+  # huaweicloud_obs_bucket.datalake will be created
+  + resource "huaweicloud_obs_bucket" "datalake" {
+      + acl                   = "private"
+      + bucket                = "spark-etl-datalake"
+      + bucket_domain_name    = (known after apply)
+      + bucket_key_enabled    = (known after apply)
+      + bucket_version        = (known after apply)
+      + encryption            = true
+      + enterprise_project_id = (known after apply)
+      + force_destroy         = true
+      + id                    = (known after apply)
+      + kms_data_encryption   = (known after apply)
+      + kms_key_id            = (known after apply)
+      + kms_key_project_id    = (known after apply)
+      + multi_az              = (known after apply)
+      + policy                = (known after apply)
+      + policy_format         = "obs"
+      + quota                 = 0
+      + region                = (known after apply)
+      + sse_algorithm         = (known after apply)
+      + storage_class         = "STANDARD"
+      + storage_info          = (known after apply)
+      + tags                  = {
+          + "project" = "spark-etl"
+        }
+      + user_domain_names     = (known after apply)
+      + versioning            = true
+    }
+
+  # huaweicloud_swr_organization.main will be created
+  + resource "huaweicloud_swr_organization" "main" {
+      + creator      = (known after apply)
+      + id           = (known after apply)
+      + login_server = (known after apply)
+      + name         = "sparketl"
+      + permission   = (known after apply)
+      + region       = (known after apply)
+    }
+
+  # huaweicloud_vpc.main will be created
+  + resource "huaweicloud_vpc" "main" {
+      + cidr                  = "10.0.0.0/16"
+      + enhanced_local_route  = (known after apply)
+      + enterprise_project_id = (known after apply)
+      + id                    = (known after apply)
+      + name                  = "spark-etl-vpc"
+      + region                = (known after apply)
+      + routes                = (known after apply)
+      + secondary_cidrs       = (known after apply)
+      + status                = (known after apply)
+      + tags                  = (known after apply)
+    }
+
+  # huaweicloud_vpc_eip.cluster will be created
+  + resource "huaweicloud_vpc_eip" "cluster" {
+      + address               = (known after apply)
+      + associate_id          = (known after apply)
+      + associate_type        = (known after apply)
+      + charging_mode         = (known after apply)
+      + created_at            = (known after apply)
+      + enterprise_project_id = (known after apply)
+      + id                    = (known after apply)
+      + instance_id           = (known after apply)
+      + instance_type         = (known after apply)
+      + ipv6_address          = (known after apply)
+      + port_id               = (known after apply)
+      + private_ip            = (known after apply)
+      + region                = (known after apply)
+      + status                = (known after apply)
+      + tags                  = (known after apply)
+      + updated_at            = (known after apply)
+
+      + bandwidth {
+          + charge_mode = "traffic"
+          + id          = (known after apply)
+          + name        = "spark-etl-cluster-eip"
+          + share_type  = "PER"
+          + size        = 5
+        }
+
+      + publicip {
+          + ip_address = (known after apply)
+          + ip_version = (known after apply)
+          + port_id    = (known after apply)
+          + type       = "5_bgp"
+        }
+    }
+
+  # huaweicloud_vpc_eip.ingress will be created
+  + resource "huaweicloud_vpc_eip" "ingress" {
+      + address               = (known after apply)
+      + associate_id          = (known after apply)
+      + associate_type        = (known after apply)
+      + charging_mode         = (known after apply)
+      + created_at            = (known after apply)
+      + enterprise_project_id = (known after apply)
+      + id                    = (known after apply)
+      + instance_id           = (known after apply)
+      + instance_type         = (known after apply)
+      + ipv6_address          = (known after apply)
+      + port_id               = (known after apply)
+      + private_ip            = (known after apply)
+      + region                = (known after apply)
+      + status                = (known after apply)
+      + tags                  = (known after apply)
+      + updated_at            = (known after apply)
+
+      + bandwidth {
+          + charge_mode = "traffic"
+          + id          = (known after apply)
+          + name        = "spark-etl-ingress-eip"
+          + share_type  = "PER"
+          + size        = 5
+        }
+
+      + publicip {
+          + ip_address = (known after apply)
+          + ip_version = (known after apply)
+          + port_id    = (known after apply)
+          + type       = "5_bgp"
+        }
+    }
+
+  # huaweicloud_vpc_subnet.az1 will be created
+  + resource "huaweicloud_vpc_subnet" "az1" {
+      + availability_zone    = "cn-north-4a"
+      + cidr                 = "10.0.1.0/24"
+      + dhcp_enable          = true
+      + dhcp_ipv6_lease_time = (known after apply)
+      + dhcp_lease_time      = (known after apply)
+      + dns_list             = (known after apply)
+      + gateway_ip           = "10.0.1.1"
+      + id                   = (known after apply)
+      + ipv4_subnet_id       = (known after apply)
+      + ipv6_cidr            = (known after apply)
+      + ipv6_gateway         = (known after apply)
+      + ipv6_subnet_id       = (known after apply)
+      + name                 = "spark-etl-subnet-az1"
+      + primary_dns          = (known after apply)
+      + region               = (known after apply)
+      + secondary_dns        = (known after apply)
+      + subnet_id            = (known after apply)
+      + tags                 = (known after apply)
+      + vpc_id               = (known after apply)
+    }
+
+  # huaweicloud_vpc_subnet.az2 will be created
+  + resource "huaweicloud_vpc_subnet" "az2" {
+      + availability_zone    = "cn-north-4b"
+      + cidr                 = "10.0.2.0/24"
+      + dhcp_enable          = true
+      + dhcp_ipv6_lease_time = (known after apply)
+      + dhcp_lease_time      = (known after apply)
+      + dns_list             = (known after apply)
+      + gateway_ip           = "10.0.2.1"
+      + id                   = (known after apply)
+      + ipv4_subnet_id       = (known after apply)
+      + ipv6_cidr            = (known after apply)
+      + ipv6_gateway         = (known after apply)
+      + ipv6_subnet_id       = (known after apply)
+      + name                 = "spark-etl-subnet-az2"
+      + primary_dns          = (known after apply)
+      + region               = (known after apply)
+      + secondary_dns        = (known after apply)
+      + subnet_id            = (known after apply)
+      + tags                 = (known after apply)
+      + vpc_id               = (known after apply)
+    }
+
+Plan: 23 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + argo_url            = (known after apply)
+  + cce_cluster_id      = (known after apply)
+  + cce_kubeconfig_url  = (known after apply)
+  + csms_secret_name    = "spark-etl-jhub-login"
+  + ingress_elb_eip     = (known after apply)
+  + jupyterhub_url      = (known after apply)
+  + obs_app_code_bucket = "spark-etl-app-code"
+  + obs_datalake_bucket = "spark-etl-datalake"
+  + swr_org             = "sparketl"
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"

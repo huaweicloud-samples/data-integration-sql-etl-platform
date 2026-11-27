@@ -1,0 +1,37 @@
+  - Effect: Allow
+    Action: 
+    - s3:ListBucket
+    - s3:GetBucketLocation
+    Resource:
+    - hw:obs:::{{codeBucket}}
+    - hw:obs:::{{datalakeBucket}}
+    - hw:obs:::nyc-tlc
+  - Effect: Allow
+    Action:
+    - s3:PutObject
+    - s3:GetObject
+    Resource:
+    - hw:obs:::{{codeBucket}}/*
+    - hw:obs:::{{datalakeBucket}}/*
+    - hw:obs:::nyc-tlc/*
+  - Effect: Allow
+    Action:
+    - s3:DeleteObject
+    Resource:
+    - hw:obs:::{{codeBucket}}/*
+    - hw:obs:::{{datalakeBucket}}/*
+  - Effect: Allow
+    Action:
+    - kms:Decrypt
+    - kms:Encrypt
+    - kms:GenerateDataKey*
+    - athena:StartQueryExecution
+    - athena:GetQueryExecution
+    - athena:GetQueryResults
+    - glue:CreateTable
+    - glue:CreateDatabase
+    - glue:CreatePartition
+    - glue:UpdatePartition
+    - glue:GetDatabase
+    Resource:
+      - '*'   

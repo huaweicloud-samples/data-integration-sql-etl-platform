@@ -1,0 +1,8 @@
+apiVersion: v2
+name: spark-etl-platform
+description: >-
+  sql-based-etl 平台层清单（RBAC / Argo WorkflowTemplate / Ingress）。
+  由 Terraform helm_release 自动安装，提供一条命令完成平台组件部署的体验。
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

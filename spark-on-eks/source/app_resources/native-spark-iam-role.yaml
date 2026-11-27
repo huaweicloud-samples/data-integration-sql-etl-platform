@@ -1,0 +1,27 @@
+- Effect: Allow
+  Action: s3:ListBucket
+  Resource:
+  - hw:obs:::{{codeBucket}}
+  - hw:obs:::{{datalakeBucket}}
+  - hw:obs:::nyc-tlc
+- Effect: Allow
+  Action:
+  - s3:PutObject
+  - s3:GetObject
+  Resource:
+  - hw:obs:::{{codeBucket}}/*
+  - hw:obs:::{{datalakeBucket}}/*
+  - hw:obs:::nyc-tlc/*
+- Effect: Allow
+  Action:
+  - s3:DeleteObject
+  Resource:
+  - hw:obs:::{{codeBucket}}/*  
+- Effect: Allow
+  Action:
+  - kms:Encrypt
+  - kms:Decrypt
+  - kms:GenerateDataKey*
+  - kms:DescribeKey
+  Resource:
+  - '*'    

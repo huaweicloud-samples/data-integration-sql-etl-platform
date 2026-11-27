@@ -1,0 +1,20 @@
+# ============================================================================
+# spark-etl-platform 默认值（由 Terraform addons.tf 注入覆盖）
+# ============================================================================
+
+# 华为云区域（决定 SWR/OBS 端点）
+region: cn-north-4
+
+# SWR 组织名（Arc/Spark 镜像所在组织）
+swrOrg: sparketl
+
+# 访问 OBS 的 AK/SK（由 Terraform 从变量注入，或部署后手工替换 Secret）
+obsAccessKey: "REPLACE_WITH_HW_ACCESS_KEY"
+obsSecretKey: "REPLACE_WITH_HW_SECRET_KEY"
+
+# Ingress 域名（无域名时可用 <ELB_EIP>.nip.io 形式）
+jhubHost: jhub.example.com
+argoHost: argo.example.com
+
+# 应用代码桶名（Workflow 示例中引用）
+appCodeBucket: spark-etl-app-code
